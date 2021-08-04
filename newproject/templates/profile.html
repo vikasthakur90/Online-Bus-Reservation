@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+    {% endfor %}
+
+    {% endif %}
+
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+    body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+    fieldset {
+        border: double;
+        width: 45%;
+        padding: 5%;
+        }
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("/static/images/buscd.jpg");
+
+  height: 800px;
+  width: 960px
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+    .btn {
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: #8e7d3e;
+  color: white;
+}
+ #my1 {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px ;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+.contain1 {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  width: 350px;
+  height: 490px;
+  padding: 20px;
+  background-color: white;
+}
+</style>
+
+</head>
+<body>
+<br>
+<br>
+<div class="bg-img">
+    <br>
+    <br>
+
+<form action="profile" class="contain1" method="post">
+    {% csrf_token %}
+    <fieldset style="width:300"><legend><i>SEARCH BUS</i></legend>
+    <div>
+    <label> <b> ENTER SOURCE: </b>   </label>
+        <select class="mdb-select md-form" name="source" searchable="Search here.." id="my1">
+            <option value="" disabled selected> ENTER SOURCE </option>
+            <option value="DEWAS">DEWAS</option>
+            <option value="INDORE">INDORE</option>
+            <option value="UJJAIN">UJJAIN</option>
+            <option value="BHOPAL">BHOPAL</option>
+            <option value="PUNE">PUNE</option>
+            <option value="SEHORE">SEHORE</option>
+            <option value="MUMBAI">MUMBAI</option>
+            <option value="SHIRDI">SHIRDI</option>
+            <option value="BENGALURU">BENGALURU</option>
+            <option value="HYDERABAD">HYDERABAD</option>
+            <option value="DELHI">DELHI</option>
+            <option value="GOA">GOA</option>
+            <option value="CHENNAI">CHENNAI</option>
+            <option value="AHMEDABAD">AHMEDABAD</option>
+            <option value="VIJAYAWADA">VIJAYAWADA</option>
+            <option value="VIZAG">VIZAG</option>
+            <option value="CALCUTTA">CALCUTTA</option>
+            <option value="NASHIK">NASHIK</option>
+            <option value="RAJKOT">RAJKOT</option>
+            <option value="KOTA">KOTA</option>
+            <option value="JODHPUR">JODHPUR</option>
+            <option value="JABALPUR">JABALPUR</option>
+            <option value="GWALIOR">GWALIOR</option>
+            <option value="MEERUT">MEERUT</option>
+            <option value="RANCHI">RANCHI</option>
+            <option value="JAIPUR">JAIPUR</option>
+            <option value="TIRUPATI">TIRUPATI</option>
+            <option value="YELLAPUR">YELLAPUR</option>
+            <option value="UDAIPUR">UDAIPUR</option>
+            <option value="OOTY">OOTY</option>
+            <option value="PONDICHERRY">PONDICHERRY</option>
+            <option value="GORAKHPUR">GORAKHPUR</option>
+            <option value="DEHRADUN">DEHRADUN</option>
+            <option value="GOA">GOA</option>
+            <option value="MANDSAUR">MANDSAUR</option>
+            <option value="MANALI">MANALI</option>
+        </select>
+        <br>
+        <br>
+    <label><b> ENTER DESTINATION:  </b></label>
+        <select class="mdb-select md-form" name="destination" searchable="Search here.." id="my1">
+            <option value="" disabled selected> ENTER DESTINATION </option>
+            <option value="DEWAS">DEWAS</option>
+            <option value="INDORE">INDORE</option>
+            <option value="UJJAIN">UJJAIN</option>
+            <option value="BHOPAL">BHOPAL</option>
+            <option value="PUNE">PUNE</option>
+            <option value="SEHORE">SEHORE</option>
+            <option value="MUMBAI">MUMBAI</option>
+            <option value="SHIRDI">SHIRDI</option>
+            <option value="BENGALURU">BENGALURU</option>
+            <option value="HYDERABAD">HYDERABAD</option>
+            <option value="DELHI">DELHI</option>
+            <option value="GOA">GOA</option>
+            <option value="CHENNAI">CHENNAI</option>
+            <option value="AHMEDABAD">AHMEDABAD</option>
+            <option value="VIJAYAWADA">VIJAYAWADA</option>
+            <option value="VIZAG">VIZAG</option>
+            <option value="CALCUTTA">CALCUTTA</option>
+            <option value="NASHIK">NASHIK</option>
+            <option value="RAJKOT">RAJKOT</option>
+            <option value="KOTA">KOTA</option>
+            <option value="JODHPUR">JODHPUR</option>
+            <option value="JABALPUR">JABALPUR</option>
+            <option value="GWALIOR">GWALIOR</option>
+            <option value="MEERUT">MEERUT</option>
+            <option value="RANCHI">RANCHI</option>
+            <option value="JAIPUR">JAIPUR</option>
+            <option value="TIRUPATI">TIRUPATI</option>
+            <option value="YELLAPUR">YELLAPUR</option>
+            <option value="UDAIPUR">UDAIPUR</option>
+            <option value="OOTY">OOTY</option>
+            <option value="PONDICHERRY">PONDICHERRY</option>
+            <option value="GORAKHPUR">GORAKHPUR</option>
+            <option value="DEHRADUN">DEHRADUN</option>
+            <option value="GOA">GOA</option>
+            <option value="MANDSAUR">MANDSAUR</option>
+            <option value="MANALI">MANALI</option>
+        </select>
+        <br>
+        <br>
+        <label><b>DATE OF TOUR:</b></label>
+    <input type="date" id="my1">
+        <br>
+        <br>
+    <input type="submit" class="btn" placeholder="SEARCH BUS">
+    </div>
+    </fieldset>
+</form>
+    <br>
+    <br>
+</div>
+
+</body>
+</html>
+{% endblock %}
